@@ -11,3 +11,11 @@ This crawler saves the following information for each notice:
 * content: Text of publication
 
 The content of the publication contains unstructured text and must be further processed in order to extract data.
+
+## Running the Spider
+
+To run the spider and save the crawled items in JSON use:
+
+```bash
+scrapy crawl bora -o items_bora.json
+```

@@ -19,3 +19,7 @@ To run the spider and save the crawled items in JSON use:
 ```bash
 scrapy crawl bora -o items_bora.json
 ```
+
+## License
+
+Distributed under the MIT License. See LICENSE file for further details.

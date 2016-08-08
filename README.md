@@ -4,6 +4,8 @@
 
 [BORA](https://www.boletinoficial.gob.ar) is the [Official Gazette](https://en.wikipedia.org/wiki/Government_gazette) for Argentina, where the government publishes public or legal notices, including companies incorporation or modifications in their structure and share holders.
 
+More details can be found in [this article](https://medium.com/@chrishein/detecting-suspicious-patterns-in-argentinean-companies-incorporation-using-scrapy-and-neo4j-e826bacb0809#.b3em4ckuc).
+
 This crawler saves the following information for each notice:
 * id: Notice ID in the BORA website
 * company: Name of the company

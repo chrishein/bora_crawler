@@ -6,7 +6,7 @@ import urllib
 
 import scrapy
 
-from bs4 import BeautifulSoup
+from BeautifulSoup import BeautifulSoup
 from datetime import date
 from bora_crawler.items import BoraItem
 
@@ -59,7 +59,7 @@ class BoraSpider(scrapy.Spider):
 
     def parse_edict(self, response):
         data = json.loads(response.body)['dataList']
-        soup = BeautifulSoup(data['textoCompleto'], 'lxml')
+        soup = BeautifulSoup(data['textoCompleto'])
 
         item = BoraItem()
         item['id'] = data['idTramite']

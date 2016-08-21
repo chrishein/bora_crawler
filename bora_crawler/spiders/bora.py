@@ -6,7 +6,7 @@ import urllib
 
 import scrapy
 
-from BeautifulSoup import BeautifulSoup
+from scrapy.selector import Selector
 from datetime import date
 from bora_crawler.items import BoraItem
 
@@ -19,8 +19,8 @@ class BoraSpider(scrapy.Spider):
     def start_requests(self):
         start_date = date(2011, 1, 1)
         # end_date = date.today() - timedelta(1)
-        # end_date = date(2015, 12, 31)
-        end_date = date(2011, 02, 15)
+        end_date = date(2015, 12, 31)
+        # end_date = date(2011, 02, 15)
         current_date = start_date
         delta = datetime.timedelta(days=1)
         url = 'https://www.boletinoficial.gob.ar/secciones/secciones.json'
@@ -59,12 +59,12 @@ class BoraSpider(scrapy.Spider):
 
     def parse_edict(self, response):
         data = json.loads(response.body)['dataList']
-        soup = BeautifulSoup(data['textoCompleto'])
+        selector = Selector(text=data['textoCompleto'])
 
         item = BoraItem()
         item['id'] = data['idTramite']
-        item['company'] = soup.h3.string
+        item['company'] = selector.xpath('//h3/text()').extract_first().strip()
         item['date'] = datetime.datetime.strptime(data['fechaPublicacion'], "%Y%m%d").date()
-        item['content'] = soup.p.string
+        item['content'] = selector.xpath('//p/text()').extract_first().strip()
 
         yield item

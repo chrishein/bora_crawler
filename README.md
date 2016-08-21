@@ -21,6 +21,9 @@ To run the spider and save the crawled items in JSON use:
 ```bash
 scrapy crawl bora -o items_bora.json
 ```
+## Deploying to Scrapinghub
+
+When deploying to [Scrapinghub](https://www.scrapinghub.com), make sure you use the [scrapy stack](https://github.com/scrapinghub/scrapinghub-stack-scrapy), as explained [here](https://support.scrapinghub.com/topics/1962-scrapy-cloud-stacks/) in order to avoid SSL errors.
 
 ## License
 

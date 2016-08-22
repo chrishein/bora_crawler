@@ -55,7 +55,7 @@ class BoraSpider(scrapy.Spider):
         url = 'https://www.boletinoficial.gob.ar/norma/detalleSegunda'
 
         for edict in data['dataList'][0]:
-            if edict['rubro'] in ('CONSTITUCION SA', 'REFORMA SA'):
+            if edict['rubro'] in ('CONSTITUCION SA', 'REFORMA SA', 'CONTRATO SRL', 'MODIFICACIONES SRL'):
                 payload = {'id': edict['id']}
                 yield scrapy.Request(url=url, callback=self.parse_edict,
                                      method="POST",

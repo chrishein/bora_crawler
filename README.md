@@ -19,8 +19,11 @@ The content of the publication contains unstructured text and must be further pr
 To run the spider and save the crawled items in JSON use:
 
 ```bash
-scrapy crawl bora -o items_bora.json
+scrapy crawl bora -o items_bora.json -a start_date=YYY-mm-dd -a end_date=YYY-mm-dd
 ```
+start_date and end_date are optional, with default values 2011-01-01 and current date respectively.
+
+
 ## Deploying to Scrapinghub
 
 When deploying to [Scrapinghub](https://www.scrapinghub.com), make sure you use the [scrapy stack](https://github.com/scrapinghub/scrapinghub-stack-scrapy), as explained [here](https://support.scrapinghub.com/topics/1962-scrapy-cloud-stacks/) in order to avoid SSL errors.

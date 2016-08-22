@@ -3,6 +3,7 @@ import datetime
 import json
 import re
 import urllib
+import copy
 
 import scrapy
 
@@ -16,15 +17,23 @@ class BoraSpider(scrapy.Spider):
     allowed_domains = ["boletinoficial.gob.ar"]
     start_urls = ()
 
+    def __init__(self, start_date=None, end_date=None, *args, **kwargs):
+        super(BoraSpider, self).__init__(*args, **kwargs)
+        if start_date is not None:
+            self.start_date = datetime.datetime.strptime(start_date, "%Y-%m-%d").date()
+        else:
+            self.start_date = date(2011, 1, 1)
+
+        if end_date is not None:
+            self.end_date = datetime.datetime.strptime(end_date, "%Y-%m-%d").date()
+        else:
+            self.end_date = date.today()
+
     def start_requests(self):
-        start_date = date(2011, 1, 1)
-        # end_date = date.today() - timedelta(1)
-        end_date = date(2015, 12, 31)
-        # end_date = date(2011, 02, 15)
-        current_date = start_date
+        current_date = copy.copy(self.start_date)
         delta = datetime.timedelta(days=1)
         url = 'https://www.boletinoficial.gob.ar/secciones/secciones.json'
-        while current_date <= end_date:
+        while current_date <= self.end_date:
             payload = {'nombreSeccion': 'segunda', 'subCat': 'all',
                        'offset': 1, 'itemsPerPage': 500,
                        'fecha': current_date.strftime("%Y%m%d")}

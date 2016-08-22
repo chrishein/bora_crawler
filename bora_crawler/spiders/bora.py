@@ -72,6 +72,7 @@ class BoraSpider(scrapy.Spider):
 
         item = BoraItem()
         item['id'] = data['idTramite']
+        item['type'] = data['rubroDescripcion']
         item['company'] = selector.xpath('//h3/text()').extract_first().strip()
         item['date'] = datetime.datetime.strptime(data['fechaPublicacion'], "%Y%m%d").date()
         item['content'] = selector.xpath('//p/text()').extract_first().strip()

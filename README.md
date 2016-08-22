@@ -10,6 +10,7 @@ This crawler saves the following information for each notice:
 * id: Notice ID in the BORA website
 * company: Name of the company
 * date: Date of publication
+* type: Type of publication. Eg: company constitution, company modification, etc.
 * content: Text of publication
 
 The content of the publication contains unstructured text and must be further processed in order to extract data.

@@ -8,3 +8,4 @@ class BoraItem(scrapy.Item):
     url = scrapy.Field()
     content = scrapy.Field()
     id = scrapy.Field()
+    type = scrapy.Field()

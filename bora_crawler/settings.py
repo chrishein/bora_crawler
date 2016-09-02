@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'bora_crawler.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'bora_crawler (+http://www.yourdomain.com)'
+USER_AGENT = 'bora_crawler (+https://github.com/chrishein/bora_crawler)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -52,10 +52,10 @@ ROBOTSTXT_OBEY = True
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-   'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware' : None,
-   'bora_crawler.middlewares.rotate_useragent.RotateUserAgentMiddleware' : 400
-}
+# DOWNLOADER_MIDDLEWARES = {
+#    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware' : None,
+#    'bora_crawler.middlewares.rotate_useragent.RotateUserAgentMiddleware' : 400
+# }
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
